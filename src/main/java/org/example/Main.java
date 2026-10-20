@@ -6,12 +6,12 @@ void main(){
             ContoBancario conto = new ContoBancario(500.0);
             System.out.println("--- Scenario 1: Prelievo Eccessivo ---");
             try {
-                conto.preleva(700.0); // Richiede più dei 500 disponibili
+                conto.preleva(700.0);
             } catch (SaldoInsufficienteException e) {
                 System.out.println("Errore intercettato: " + e.getMessage());
-                System.out.println("Deficit di denaro: " + e.getDeficit() + " euro (Mancano " + e.getDeficit() + " euro).");
+                System.out.println("Deficit di denaro: " + e.getDeficit() + " euro (Mancano " + e.getDeficit() + " €)");
             } finally {
-                System.out.println("Blocco finally eseguito. Saldo attuale invariato: " + conto.getSaldo() + " euro.\n");
+                System.out.println("Blocco finally eseguito. Saldo attuale invariato: " + conto.getSaldo() + " €\n");
             }
             System.out.println("--- Scenario 2: Prelievo Negativo ---");
             try {
