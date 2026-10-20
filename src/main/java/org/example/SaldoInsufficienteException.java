@@ -1,16 +1,26 @@
 package org.example;
 
-public class FalcariNotFound extends Exception {
-    private int statusCode;
-    public FalcariNotFound(String message) {
-        super(message);
-    }
-    public  FalcariNotFound(String message, int statusCode){
-        super(message);
-        this.statusCode = statusCode;
+public class SaldoInsufficienteException extends Exception {
+    private double saldoAttuale;
+    private double importoRichiesto;
+
+    public SaldoInsufficienteException(double saldoAttuale, double importoRichiesto) {
+        super("Tentativo di prelievo superiore al saldo disponibile");
+        this.saldoAttuale = saldoAttuale;
+        this.importoRichiesto = importoRichiesto;
     }
 
-    public int getStatusCode() {
-        return statusCode;
+    public double getDeficit() {
+        return importoRichiesto - saldoAttuale;
+    }
+
+    public double getSaldoAttuale() {
+
+        return saldoAttuale;
+    }
+
+    public double getImportoRichiesto() {
+
+        return importoRichiesto;
     }
 }
